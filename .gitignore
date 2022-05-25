@@ -1,0 +1,14 @@
+# List of files/folder not tracked by Git
+
+
+
+# GEOtop output folders
+Templink_sim/*/output-tabs*
+Templink_sim/*/output-maps*
+Templink_sim/*/rec/*
+Templink_sim/*/*.log
+
+# Input data preparation files
+
+# Temporary files automatically created by R 
+R_scripts/.Rhistory
