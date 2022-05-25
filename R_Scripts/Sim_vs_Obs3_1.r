@@ -30,7 +30,12 @@ library(ggpmisc)
 #Open GEOtop simulation path
 path <- "C:/Users/rserban/OneDrive - Scientific Network South Tyrol/WORKZONE/Bolzano_2021/GEOtop/Git/Templink/Templink_sim/Templink_B2_001"
 
-path <- "C:/Users/gbertoldi/OneDrive - Scientific Network South Tyrol/Simulations/Templink_sims/Matsch_B2_DVM_Optim_001"
+path <- "C:/Users/gbertoldi/OneDrive - Scientific Network South Tyrol/Git/TEMPLINK/Templink_sim/Templink_B2_002"
+
+path_to_plot <- "C:/Users/rserban/OneDrive - Scientific Network South Tyrol/WORKZONE/Bolzano_2021/GEOtop/Git/Templink/Plot/"
+
+path_to_plot <- "C:/Users/gbertoldi/OneDrive - Scientific Network South Tyrol/Git/TEMPLINK/Plot/"
+
 
 # Load Soil temp output file a
 Tsim  <- get.geotop.inpts.keyword.value("SoilAveragedTempProfileFile",
@@ -71,7 +76,7 @@ compare <- left_join(Tsim, Tobs, by="Date_Time")
 # possible extension more "interactive" plots with basic scrolling and zooming features
 p1 <- compare %>%
   as_tibble() %>%
-  select(Date_Time, Tsim43, Ts_CS_z5, Ts_CI_z5) %>%
+  select(Date_Time, Tsim43, Ts_CI_z5) %>%
   pivot_longer(-1) %>%
   ggplot(aes(Date_Time, value, color=name))+
   geom_line()+
@@ -83,7 +88,7 @@ p1 <- compare %>%
 # Prepare data
 compare <- na.omit(compare)  #Keep only rows with observational data
 x <- compare %>%
-  mutate(o=Ts_CS_z5,
+  mutate(o=Ts_CI_z5,
          p=Tsim43) 
 # Calculate rmse, R2, and r2
 R2 <- round(1 - ( sum((x$o - x$p)^2) / sum((x$o - mean(x$o))^2)), 2) 
@@ -93,7 +98,7 @@ r2 <- round(cor(x$o, x$p)^2, 2) #Pearson's r2
 p2 <- ggplot(x, aes(x=o, y=p))+
   geom_point()+
   stat_poly_line(se = F)+
-  labs(x = "Observed Ts_CS_z5", y = "Predicted Tsim43",
+  labs(x = "Observed Ts_CI_z5", y = "Predicted Tsim43",
        title = substitute(
          paste(italic("r")^2, " = ", r2, " | ", italic("R")^2, " = ", R2, " | ",italic("RMSE"), " = ", rmse), 
          list(r2 = r2, R2 = R2, rmse = rmse)))+
@@ -112,12 +117,14 @@ p3 <- ggplot(x, aes(x=o, y=p))+
                                  sep = '*" ; "*')),
                label.x = "left",
                formula = formula)+
-  labs(x = "Observed Ts_CS_z5", y = "Predicted Tsim43")+
+  labs(x = "Observed Ts_CI_z5", y = "Predicted Tsim43")+
   theme_bw()
 
 ## save the plot
-path_to_plot <- "C:/Users/rserban/OneDrive - Scientific Network South Tyrol/WORKZONE/Bolzano_2021/GEOtop/Git/Templink/Plot/"
+
+
 library(gridExtra) #For grid arrangement
 png(paste(path_to_plot,"Templink_B2_001.png",sep = ""), width = 15, height = 23, units = "cm", res=250)
 grid.arrange(p1, p2, p3, ncol=1)
 dev.off()
+
