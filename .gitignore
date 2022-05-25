@@ -3,10 +3,12 @@
 
 
 # GEOtop output folders
-Templink_sim/*/output-tabs*
-Templink_sim/*/output-maps*
+Templink_sim/*/tabs/*
+Templink_sim/*/maps/*
 Templink_sim/*/rec/*
 Templink_sim/*/*.log
+Templink_sim/*/_SUCCESSFUL_RUN
+
 
 # Input data preparation files
 
