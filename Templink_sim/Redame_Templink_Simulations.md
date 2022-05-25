@@ -29,3 +29,20 @@ https://github.com/EURAC-Ecohydro/MonaLisa/tree/master/geotop/1D/Matsch_B2_DVM_O
 	-Select the right header for incoming radiation
 	-Incoming radiation and wind speed were completed from input file of Matsch_B2_DVM_Optim_001 and met_IT-MtM data from EarthObs (FLUXDATA) 
 - Results:	
+	- working
+	- too high GST variation
+	- some gaps in observations 
+	- the best observations are Ts_CI_Z5
+	
+## Templink_B2_003
+- Info:  Starts from Templink_B2_002
+- Changes:
+	Canopy fraction = 0 (bare ground)
+- results 
+
+## Templink_B2_004
+- Info:  Starts from Templink_B2_001
+- Canopy fraction = 1 
+- Changes:
+ThermalConductivitySoilSolids =  0.5    from  thermal conductivity of the soil     1.9   W m−1 K−1
+- results 
