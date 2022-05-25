@@ -8,9 +8,10 @@ Templink_sim/*/maps/*
 Templink_sim/*/rec/*
 Templink_sim/*/*.log
 Templink_sim/*/_SUCCESSFUL_RUN
-
+Plot/*
 
 # Input data preparation files
 
 # Temporary files automatically created by R 
 R_scripts/.Rhistory
+R_scripts/.RData
