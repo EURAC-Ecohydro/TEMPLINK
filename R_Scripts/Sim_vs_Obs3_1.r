@@ -28,7 +28,7 @@ library(tidyverse)
 library(ggpmisc)
 
 #Open GEOtop simulation path
-path <- "C:/Users/rserban/OneDrive - Scientific Network South Tyrol/WORKZONE/Bolzano_2021/GEOtop/Git/Templink/Templink_sim/Templink_B2_001"
+path <- "C:/Users/rserban/OneDrive - Scientific Network South Tyrol/WORKZONE/Bolzano_2021/GEOtop/Git/Templink_local/Templink_sim/Templink_B2_002"
 
 path <- "C:/Users/gbertoldi/OneDrive - Scientific Network South Tyrol/Simulations/Templink_sims/Matsch_B2_DVM_Optim_001"
 
@@ -62,8 +62,8 @@ for (i in col){
 ### Only matching times
 # to make more general, needs interpolation if time granularity is different
 # to make more general put outside column selection
-#compare <- left_join(Tsim, Tobs, by="Date_Time") %>%   #better with NAs for timeseries plot
-  na.omit()  #Keep only rows with observational data
+# compare <- left_join(Tsim, Tobs, by="Date_Time") %>%   #better with NAs for timeseries plot
+#  na.omit()  #Keep only rows with observational data
 compare <- left_join(Tsim, Tobs, by="Date_Time")
 
 ## Plot timeseries
@@ -116,8 +116,8 @@ p3 <- ggplot(x, aes(x=o, y=p))+
   theme_bw()
 
 ## save the plot
-path_to_plot <- "C:/Users/rserban/OneDrive - Scientific Network South Tyrol/WORKZONE/Bolzano_2021/GEOtop/Git/Templink/Plot/"
+path_to_plot <- "C:/Users/rserban/OneDrive - Scientific Network South Tyrol/WORKZONE/Bolzano_2021/GEOtop/Git/Templink_local/Plot/"
 library(gridExtra) #For grid arrangement
-png(paste(path_to_plot,"Templink_B2_001.png",sep = ""), width = 15, height = 23, units = "cm", res=250)
+png(paste(path_to_plot,"Templink_B2_002.png",sep = ""), width = 15, height = 23, units = "cm", res=250)
 grid.arrange(p1, p2, p3, ncol=1)
 dev.off()
