@@ -92,7 +92,7 @@ VegHeight			=	400
 ThresSnowVegUp		=	50 
 ThresSnowVegDown	=	10 
 LSAI				=	4     ! important for ET/H partition
-CanopyFraction		=	1     ! important for bare ground 0 / vegetation  - do test with  CanopyFraction		=	0 
+CanopyFraction		=	0     ! important for bare ground 0 / vegetation  - do test with  CanopyFraction		=	0 
 DecayCoeffCanopy	=	2.0 
 VegSnowBurying		=	1 
 RootDepth			=	250  ! important for SMC vertical distribution 
@@ -156,8 +156,9 @@ SoilLayerTypes 						= 1
 ! [mm]  
 InitWaterTableHeightOverTopoSurface	=	-2000    ! One possible way to control intial water content profile 
 ! [C] 
-InitSoilTemp						=	4  ! Important for GST intial conditions  
-
+InitSoilTemp						=	4  ! Important for GST intial conditions 
+ThermalConductivitySoilSolids		=	0.5    ! Important for GST calibration 
+ThermalCapacitySoilSolids			=	2.16E+06  ! Important for GST calibration 
 ! [mm^-1]  
 HeaderSoilDz					=	"Dz"
 HeaderLateralHydrConductivity	=	"Kh"
@@ -174,21 +175,6 @@ HeaderCthSoilSolids				=	"Cth"
 ! HeaderSoilInitPres = "InitPsi" 			! One possible way to control intial water content profile 
 
 FreeDrainageAtBottom	=	1   ! Relevant for water lower boundary conditions 
-
-
-!=============================
-SOIL THERMAL PARAMETERS
-!======================
-
-
-
-! ThermalConductivitySoilSolids		=	1.9    ! Important for GST calibration 
-! ThermalCapacitySoilSolids			=	2.16E+06  ! Important for GST calibration 
-
-ThermalConductivitySoilSolids =  0.5     ! thermal conductivity of the soil     1.9   W m−1 K−1
-ThermalCapacitySoilSolids =     2.16E+06       ! thermal capacity of the soil         2.16E+06   J m−3 K 
-
-
 
 !======================================= 
 ! FILE NAMES 
