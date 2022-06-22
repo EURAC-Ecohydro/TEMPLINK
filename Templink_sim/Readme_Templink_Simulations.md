@@ -63,3 +63,16 @@ https://github.com/EURAC-Ecohydro/MonaLisa/tree/master/geotop/1D/Matsch_B2_DVM_O
 	- Improvements in statistics than for sim 002;
 	- Still the freezing influence but because there are NAs in obs for winter;
 
+## Templink_B2_006
+- Info:  Starts from Templink_B2_005
+- Changes:
+	- 25 thinner soil layers
+	- same parameters
+	- file soil called soil_25L_0001.txt
+	- removed unused parameters initpsi
+	- layer 4 5 cm: 6 10 cm; 9 20 cm; 17 1 m
+	
+- Results:
+	- Improvements in statistics than for sim 002;
+	- Still the freezing influence but because there are NAs in obs for winter;
+
