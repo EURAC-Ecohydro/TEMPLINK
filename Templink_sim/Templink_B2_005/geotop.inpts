@@ -92,7 +92,7 @@ VegHeight			=	400
 ThresSnowVegUp		=	50 
 ThresSnowVegDown	=	10 
 LSAI				=	4     ! important for ET/H partition
-CanopyFraction		=	0     ! important for bare ground 0 / vegetation  - do test with  CanopyFraction		=	0 
+CanopyFraction		=	1     ! important for bare ground 0 
 DecayCoeffCanopy	=	2.0 
 VegSnowBurying		=	1 
 RootDepth			=	250  ! important for SMC vertical distribution 
