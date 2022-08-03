@@ -70,9 +70,12 @@ https://github.com/EURAC-Ecohydro/MonaLisa/tree/master/geotop/1D/Matsch_B2_DVM_O
 	- same parameters
 	- file soil called soil_25L_0001.txt
 	- removed unused parameters initpsi
-	- layer 4 5 cm: 6 10 cm; 9 20 cm; 17 1 m
+	- layer 4 5 cm: 6 10 cm; 9 20 cm; 17 1 m  
 	
 - Results:
-	- Improvements in statistics than for sim 002;
+	- Slight improvements in statistics than for sim 005;
 	- Still the freezing influence but because there are NAs in obs for winter;
+	- NAs in winter only when open with "geotopbricks" but not when open directly from folder;
+	- With winter temp in obs the statistics are improving excepting the RMSE;
+	- Simulation overestimates
 
