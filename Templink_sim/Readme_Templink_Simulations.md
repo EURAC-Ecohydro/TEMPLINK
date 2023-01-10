@@ -75,7 +75,37 @@ https://github.com/EURAC-Ecohydro/MonaLisa/tree/master/geotop/1D/Matsch_B2_DVM_O
 - Results:
 	- Slight improvements in statistics than for sim 005;
 	- Still the freezing influence but because there are NAs in obs for winter;
-	- NAs in winter only when open with "geotopbricks" but not when open directly from folder;
+	- NAs in winter only when open with "geotopbricks" but not when open directly from folder; (Solved)
 	- With winter temp in obs the statistics are improving excepting the RMSE;
-	- Simulation overestimates
+	- Simulation overestimates about 2 K, better fit in Autumn for monthly;
+	- Daily variation (cycle) is too high about 5 K;
+	- The model reads correctly the inputs, the comparison of the inputs with the simulated inputs is good;
 
+## Templink_B2_007
+- Info:  Starts from Templink_B2_006
+- Changes:
+	- HeaderSurfaceTemperature="SurfT" !Using as input only MODIS LST daily at 10:30AM (April-October 2014 to 2017) with only 378 values from 649;
+	- Initial 01/04/2014 10:30 and end 31/10/2017 10:30;
+- Results:
+	- The simulated GST has no variability only a smooth variation, unrealistic;
+	- Weak statistics but not the worst;
+
+## Templink_B2_008
+- Info:  Starts from Templink_B2_007
+- Changes:
+	- InitSoilTemp = 2.6 (changed from 4 to the value of GST at 2015-04-01 10:30AM, maybe need to change to initial soil surface temperature and change to LST value?);
+- Results:
+	- Similar results to Templink_B2_007;
+
+## Templink_B2_009
+- Info:  Starts from Templink_B2_008
+- Changes:
+	- WaterBalance	= 0 !Change from "Neumann" to "Dirichlet" as the temperature boundary condition for heat transfer and heat flux (Stephan Gruber);
+	- Micromet = 0  ! Consider Micrometeorology = 0 (Stephan Gruber);
+	- Replace NA with -9999 
+ 	- To do: We need to cancel the calculation of the surface energy budget; Is don by changing to "Dirichlet"? 
+	- To do: In inps file write Surface Temperature = 1 ?;
+	- To do: Need to change the time step?
+	- To do: Maybe delete the first row of imput with -9999?
+- Results:
+	- Statistics are getting worst;
